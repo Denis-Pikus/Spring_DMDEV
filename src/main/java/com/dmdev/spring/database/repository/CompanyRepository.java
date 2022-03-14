@@ -1,10 +1,13 @@
 package com.dmdev.spring.database.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.dmdev.spring.bpp.Auditing;
 import com.dmdev.spring.bpp.InjectBean;
@@ -16,8 +19,15 @@ import com.dmdev.spring.database.pool.ConnectionPool;
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    @Autowired
+//    @Autowired
+//    @Qualifier("pool1")
     private ConnectionPool connectionPool;
+
+    @Autowired
+    private List<ConnectionPool> pools;
+
+    @Value("${db.pool.size}")
+    private Integer poolSize;
 
     @PostConstruct
     private void init() {
