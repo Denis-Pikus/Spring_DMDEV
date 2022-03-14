@@ -1,9 +1,7 @@
 package com.dmdev.spring;
 
 import com.dmdev.spring.database.pool.ConnectionPool;
-import com.dmdev.spring.database.repository.CompanyRepository;
 import com.dmdev.spring.database.repository.CrudRepository;
-
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
