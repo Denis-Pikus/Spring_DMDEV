@@ -7,7 +7,14 @@
                              http://www.springframework.org/schema/context
                              http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="com.dmdev.spring"/>
+    <context:component-scan base-package="com.dmdev.spring"
+                            annotation-config="true"
+                            resource-pattern="**/*.class"
+                            scoped-proxy="no"
+                            use-default-filters="true"
+                            scope-resolver=""
+
+    />
     <context:property-placeholder location="classpath:application.properties"/>
 
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
