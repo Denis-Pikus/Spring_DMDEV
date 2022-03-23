@@ -1,5 +1,6 @@
 package com.dmdev.spring.database.repository;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,7 @@ public class UserRepository {
 
     private final ConnectionPool connectionPool;
 
-    public UserRepository(ConnectionPool connectionPool) {
+    public UserRepository(@Qualifier("pool1") ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }
 }

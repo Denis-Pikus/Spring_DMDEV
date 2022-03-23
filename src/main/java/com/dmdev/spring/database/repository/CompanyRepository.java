@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -25,7 +26,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     private final List<ConnectionPool> pools;
     private final Integer poolSize;
 
-    public CompanyRepository(ConnectionPool connectionPool,
+    public CompanyRepository(@Qualifier("pool2") ConnectionPool connectionPool,
                              List<ConnectionPool> pools,
                              @Value("${db.pool.size}") Integer poolSize) {
         this.connectionPool = connectionPool;
